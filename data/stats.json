@@ -1,0 +1,26 @@
+[
+  {
+    "id": "stat-students",
+    "label": "طالب وطالبة",
+    "value": "8500+",
+    "icon": "Users"
+  },
+  {
+    "id": "stat-institutes",
+    "label": "معاهد عليا متخصصة",
+    "value": "3",
+    "icon": "GraduationCap"
+  },
+  {
+    "id": "stat-professors",
+    "label": "عضو هيئة تدريس ومعاونيهم",
+    "value": "240+",
+    "icon": "UserCheck"
+  },
+  {
+    "id": "stat-employment",
+    "label": "نسبة توظيف خريجينا بالسوق",
+    "value": "88%",
+    "icon": "Briefcase"
+  }
+]
