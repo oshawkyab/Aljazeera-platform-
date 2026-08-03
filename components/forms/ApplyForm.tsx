@@ -2,15 +2,6 @@
 import { Calendar, GraduationCap, Grid3x3, Mail, Phone, UploadCloud, User, User2 } from "lucide-react"
 import { Field } from "@/components/ui/field"
 import {
-   Select,
-   SelectContent,
-   SelectGroup,
-   SelectItem,
-   SelectLabel,
-   SelectTrigger,
-   SelectValue,
-} from "@/components/ui/select"
-import {
    InputGroup,
    InputGroupAddon,
    InputGroupInput,
@@ -20,9 +11,10 @@ import { departments, genderType, graduationYears, highSchoolType } from "@/util
 import { Button } from "../ui/button"
 import { toast } from "sonner"
 import { useState } from "react"
-import { randomUUID } from "crypto"
 import ApplicationInput from "./ApplicationInput"
 import ApplicationSelection from "./ApplicationSelection"
+import ApplicationUploadImg from "./ApplicationUploadImg"
+import { UploadDropzone } from "@/utils/uploadthing"
 
 const ApplyForm = () => {
 
@@ -86,6 +78,8 @@ const ApplyForm = () => {
    const changeDepartmentInput = (value: string | null) => {
       setAcadmicData({ ...acadmicData, department: value })
    }
+
+
    const submitHandler = (e: React.FormEvent) => {
       e.preventDefault()
       // setErrorMessage("somthing went wrong")
@@ -194,7 +188,7 @@ const ApplyForm = () => {
                <div className="flex items-center justify-center w-full">
                   <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-64 bg-neutral-secondary-medium border border-dashed border-default-strong rounded-base cursor-pointer hover:bg-neutral-tertiary-medium">
                      <div className="flex flex-col items-center justify-center text-body pt-5 pb-6">
-                        <svg className="w-8 h-8 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h3a3 3 0 0 0 0-6h-.025a5.56 5.56 0 0 0 .025-.5A5.5 5.5 0 0 0 7.207 9.021C7.137 9.017 7.071 9 7 9a4 4 0 1 0 0 8h2.167M12 19v-9m0 0-2 2m2-2 2 2" /></svg>
+                        <svg className="w-8 h-8 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h3a3 3 0 0 0 0-6h-.025a5.56 5.56 0 0 0 .025-.5A5.5 5.5 0 0 0 7.207 9.021C7.137 9.017 7.071 9 7 9a4 4 0 1 0 0 8h2.167M12 19v-9m0 0-2 2m2-2 2 2" /></svg>
                         <p className="mb-2 text-sm"><span className="font-semibold">Click to upload</span> or drag and drop</p>
                         <p className="text-xs">ارفاق شهادة الثانوية</p>
                      </div>
@@ -225,11 +219,31 @@ const ApplyForm = () => {
             </div>
          </div>
 
+
+         <ApplicationUploadImg label="ارفق شهادة الثانوية" changeHandler={changeTypeHighSchoolInput} />
+
+         <UploadDropzone
+            endpoint={"imageUploader"}
+            onClientUploadComplete={(res) => {
+               alert("Uploading")
+                console.log(res[0].ufsUrl)
+            }}
+            onUploadError={(error) => console.log(error)}
+            appearance={{
+               container: "p-2 border w-65 h-65 rounded-lg shadow",
+               label: "text-slate-600 text-semibold"
+            }}
+            content={{
+               label: "ارفق شهادة"
+            }}
+         />
+
+
          <div className="w-full flex items-center">
             <Button type="submit" className={"py-5 px-10 mx-auto mt-5 bg-blue-700 text-white font-bold cursor-pointer hover:bg-blue-700/90"}>ارسال طلب الالتحاق</Button>
          </div>
 
-      </form>
+      </form >
    )
 }
 

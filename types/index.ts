@@ -17,5 +17,9 @@ export type TSelectionApplication = {
    value: string | null;
    label: string
 }
+export type TApplicationDocument = {
+   changeHandler: (val: string) => void;
+   label: string
+}
 
 
