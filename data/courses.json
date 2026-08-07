@@ -1,0 +1,32 @@
+[
+  {
+    "courseCode": "CS101",
+    "title": "مقدمة في برمجة الكمبيوتر",
+    "slug": "intro-to-computer-programming",
+    "icon": "code",
+    "professor": {
+      "name": "د. أحمد محمود",
+      "email": "ahmed.mahmoud@univ.edu"
+    }
+  },
+  {
+    "courseCode": "DS202",
+    "title": "تصميم وتحليل النظم",
+    "slug": "systems-analysis-and-design",
+    "icon": "layout",
+    "professor": {
+      "name": "د. سارة علي",
+      "email": "sara.ali@univ.edu"
+    }
+  },
+  {
+    "courseCode": "MG303",
+    "title": "إدارة المشروعات البرمجية",
+    "slug": "software-project-management",
+    "icon": "briefcase",
+    "professor": {
+      "name": "د. عمر الشريف",
+      "email": "omar.elsherif@univ.edu"
+    }
+  }
+]
